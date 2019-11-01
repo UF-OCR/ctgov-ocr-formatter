@@ -1,0 +1,44 @@
+{
+  "name": "ctgov-ocr-formatter",
+  "version": "1.0.0",
+  "description": "Clinical Trials Data Formatter",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"./**/*.ts\" \"./**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
+    "preversion" : "npm run lint",
+    "version" : "npm run format && git add -A src",
+    "postversion" : "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UF-OCR/ctgov-ocr-formatter.git"
+  },
+  "keywords": [],
+  "author": "hkoranne",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UF-OCR/ctgov-ocr-formatter/issues"
+  },
+  "homepage": "https://github.com/UF-OCR/ctgov-ocr-formatter#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.21",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.1.0",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.6.4"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "@types/xml2js": "^0.4.5",
+    "xml2js": "^0.4.22"
+  }
+}
