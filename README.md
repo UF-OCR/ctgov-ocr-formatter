@@ -1,5 +1,7 @@
 # CTGOV Data Formatter
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3585698.svg)](https://doi.org/10.5281/zenodo.3585698)
+
 Ever had issues with displaying the parsed data from CTGOV on web/mobile pages? And wanted to display the data in a user friendly format? Then ctgov-ocr-formatter is what you are looking for!
 
 ## Description

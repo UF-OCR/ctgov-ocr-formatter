@@ -4,7 +4,17 @@ export class Formatter {
     let formattedData = '';
     for (const row in explodeData) {
       if (explodeData[row] !== undefined) {
-        formattedData += explodeData[row].replace(/(?:\r\n|\r|\n|\s\s)/g, '') + '\r\n\r\n';
+        // Unix-style newline
+        let tempFormat = explodeData[row].replace('\r\n', '\n');
+        // remove leading whitespace
+        tempFormat = tempFormat.replace(/\A\s*/, '');
+        // remove leading horizontal whitespace per line
+        tempFormat = tempFormat.replace(/^[ \t]*/, '');
+        // remove trailing horizontal whitespace per line
+        tempFormat = tempFormat.replace(/[ \t]*$/, '');
+        // remove single new lines
+        tempFormat = tempFormat.replace(/(\S[^\S\n]*)\n([^\S\n]*\S)/, '$1$2');
+        formattedData += tempFormat;
       }
     }
     formattedData = formattedData.substring(0, formattedData.length - 8);
