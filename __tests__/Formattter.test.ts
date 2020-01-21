@@ -1,6 +1,7 @@
 import { Formatter } from '../index';
 import xml2js = require('xml2js');
 import fs = require('fs');
+require('console');
 
 test('basic', () => {
   const parser = new xml2js.Parser();
